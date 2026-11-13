@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MOVIA — Carte des interventions</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <link rel="stylesheet" href="carte.css">
+</head>
+<body>
+  <header class="bandeau">
+    <img src="icon-32.png" alt="" width="24" height="24">
+    <div>
+      <div class="bandeau-titre">Carte des interventions</div>
+      <div class="bandeau-sous">MOVIA · planning publié</div>
+    </div>
+  </header>
+
+  <section class="commandes">
+    <label class="champ">Agence
+      <select id="agence" aria-label="Agence"></select>
+    </label>
+    <div class="jour">
+      <button id="jourPlanPrec" class="btn-icone" title="Journée planifiée précédente" aria-label="Journée planifiée précédente">&laquo;</button>
+      <button id="jourPrec" class="btn-icone" title="Veille" aria-label="Veille">&lsaquo;</button>
+      <input type="date" id="date" aria-label="Date">
+      <button id="jourSuiv" class="btn-icone" title="Lendemain" aria-label="Lendemain">&rsaquo;</button>
+      <button id="jourPlanSuiv" class="btn-icone" title="Journée planifiée suivante" aria-label="Journée planifiée suivante">&raquo;</button>
+    </div>
+    <div class="jour-libelle" id="jourLibelle"></div>
+    <div class="actions">
+      <button id="actualiser" class="btn">Actualiser</button>
+      <button id="recentrer" class="btn">Recentrer</button>
+    </div>
+  </section>
+
+  <div id="message" class="message" hidden></div>
+
+  <div id="carte" class="carte" role="region" aria-label="Carte des interventions de la journée"></div>
+
+  <section class="synthese">
+    <div class="total"><span id="total">0</span> <span id="totalLibelle">intervention sur la carte</span></div>
+    <div class="legende-entete">
+      <span>Équipes</span>
+      <button id="toutes" class="lien">Toutes</button>
+    </div>
+    <ul id="legende" class="legende"></ul>
+  </section>
+
+  <section class="hors" id="horsBloc" hidden>
+    <div class="hors-titre">Hors carte (<span id="horsNb">0</span>)</div>
+    <ul id="hors" class="hors-liste"></ul>
+  </section>
+
+  <footer class="pied">
+    Positions : coordonnées de la table Clients, jamais estimées. Consultation seule : le classeur n'est pas modifié.
+    <span id="version"></span>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="carte-logique.js"></script>
+  <script src="carte-app.js"></script>
+</body>
+</html>

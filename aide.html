@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MOVIA — Carte des interventions : aide</title>
+  <link rel="stylesheet" href="carte.css">
+  <style>main { max-width: 680px; margin: 0 auto; padding: 16px; line-height: 1.55; } h2 { color: var(--vert); font-size: 16px; margin-top: 20px; }</style>
+</head>
+<body>
+  <header class="bandeau"><img src="icon-32.png" alt="" width="24" height="24"><div><div class="bandeau-titre">MOVIA — Carte des interventions</div><div class="bandeau-sous">Vos équipes organisées automatiquement. Gagnez du temps. Optimisez vos déplacements. Réduisez vos coûts.</div></div></header>
+  <main>
+    <h2>Ouvrir la carte</h2>
+    <p>Dans Excel, onglet <b>Accueil</b>, groupe <b>MOVIA</b> : bouton <b>Carte des interventions</b>. La carte s'ouvre à droite du classeur.</p>
+    <h2>Ce que montre la carte</h2>
+    <p>Les interventions du <b>planning publié</b> pour la journée choisie, une couleur par équipe. Un repère avec un nombre : plusieurs interventions à la même adresse. Un rond avec un nombre : des interventions proches, cliquer pour zoomer. Cliquer sur un repère ouvre la fiche (client, adresse, horaires, équipe, agents, effectif, statut).</p>
+    <p>Les interventions « à valider », sans coordonnées ou non actives ne sont pas placées : elles sont listées sous « Hors carte » avec la raison.</p>
+    <h2>Mettre la carte à jour</h2>
+    <p>La carte lit la table « Carte », que le script MOVIA réécrit à chaque « Générer le planning » ou « Appliquer mes modifications ». Elle se met à jour seule quand c'est possible ; sinon, bouton <b>Actualiser</b>.</p>
+    <h2>Ce que la carte ne fait pas</h2>
+    <p>Elle ne calcule ni itinéraire ni trajet, et ne modifie jamais le classeur : c'est un outil de consultation. Les horaires et les équipes se changent dans l'onglet Modifications.</p>
+    <p class="pied">Fond de carte © contributeurs OpenStreetMap. Positions : coordonnées saisies dans la table Clients.</p>
+  </main>
+</body>
+</html>

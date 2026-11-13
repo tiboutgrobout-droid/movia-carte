@@ -1,78 +1,89 @@
-/* MOVIA — identité : vert profond, vert sauge, terracotta, ivoire. */
+/* MOVIA — charte V3 (13/11/2026) : bleu nuit, bleu ardoise, jaune paille, lavande, ivoire. Polices Quicksand et Nunito Sans (OFL). */
 :root {
-  --vert: #1F4A3D; --sauge: #8FA98F; --terracotta: #C8734F; --ivoire: #F7F3EA;
-  --texte: #23302B; --doux: #5F6B66; --trait: #DCD6C8; --fond: #FFFFFF;
+  --nuit: #3B4A6B; --nuit-survol: #2E3A55; --ardoise: #5677A8; --lien: #46679A; --paille: #EFCB62; --lavande: #9C88C6;
+  --ivoire: #FDF8F0; --carte: #FFFFFF; --trait: #E6E1D8; --champ: #CFC8BA;
+  --texte: #2E3A55; --doux: #5B6478;
+  /* états : teinte / texte / bordure */
+  --valider-fond: #FBF1D0; --valider-texte: #6B5310; --valider-trait: #EFCB62;
+  --conflit-fond: #F7E3E0; --conflit-texte: #8A3B30; --conflit-trait: #D98C82;
+  --info-fond: #EEE9F7; --info-texte: #5A4889; --info-trait: #9C88C6;
+  --titre: "Quicksand", "Nunito Sans", "Segoe UI", sans-serif;
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; background: var(--ivoire); color: var(--texte);
-  font-family: "Segoe UI", "Segoe UI Web (West European)", -apple-system, Roboto, "Helvetica Neue", sans-serif; font-size: 13px; }
-button, select, input { font-family: inherit; font-size: 13px; color: var(--texte); }
+  font-family: "Nunito Sans", "Segoe UI", "Segoe UI Web (West European)", -apple-system, Roboto, "Helvetica Neue", sans-serif; font-size: 14px; }
+button, select, input { font-family: inherit; font-size: 14px; color: var(--texte); }
 
-.bandeau { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--vert); color: var(--ivoire); }
-.bandeau img { border-radius: 6px; background: var(--ivoire); }
-.bandeau-titre { font-size: 15px; font-weight: 600; }
-.bandeau-sous { font-size: 11px; opacity: .85; }
+.bandeau { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--nuit); color: #FFFFFF; }
+.bandeau img { display: block; flex: none; }
+.bandeau-titre { font-family: var(--titre); font-size: 16px; font-weight: 700; }
+.bandeau-sous { font-size: 13px; color: #E6E1D8; }
 
 .commandes { padding: 10px 12px 6px; display: grid; gap: 8px; }
-.champ { display: grid; gap: 3px; font-size: 11px; color: var(--doux); }
-select, input[type=date] { height: 30px; border: 1px solid var(--trait); border-radius: 6px; background: var(--fond); padding: 0 6px; }
+.champ { display: grid; gap: 3px; font-size: 13px; font-weight: 600; color: var(--doux); }
+select, input[type=date] { height: 34px; border: 1px solid var(--champ); border-radius: 10px; background: var(--carte); padding: 0 8px; }
+select:focus, input[type=date]:focus { border-color: var(--ardoise); }
 .jour { display: flex; gap: 4px; align-items: center; }
 .jour input { flex: 1; min-width: 0; }
-.jour-libelle { font-weight: 600; color: var(--vert); }
+.jour-libelle { font-family: var(--titre); font-weight: 700; color: var(--nuit); }
 .actions { display: flex; gap: 6px; }
-.btn, .btn-icone { height: 30px; border: 1px solid var(--trait); border-radius: 6px; background: var(--fond); cursor: pointer; }
-.btn { padding: 0 10px; flex: 1; }
-.btn-icone { width: 30px; font-size: 16px; line-height: 1; }
-.btn:hover, .btn-icone:hover { border-color: var(--sauge); background: #F1F4EE; }
-.btn:focus-visible, .btn-icone:focus-visible, select:focus-visible, input:focus-visible, .lien:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 1px; }
-.lien { border: 0; background: none; color: var(--vert); text-decoration: underline; cursor: pointer; padding: 0; }
+.btn, .btn-icone { height: 34px; border: 1px solid var(--champ); border-radius: 10px; background: var(--carte); cursor: pointer; }
+.btn { padding: 0 10px; flex: 1; font-weight: 700; }
+.btn-icone { width: 34px; font-size: 17px; line-height: 1; }
+.btn:hover, .btn-icone:hover { border-color: var(--ardoise); background: #E4EAF4; }
+.btn:focus-visible, .btn-icone:focus-visible, select:focus-visible, input:focus-visible, .lien:focus-visible { outline: 2px solid var(--ardoise); outline-offset: 1px; }
+.lien { border: 0; background: none; color: var(--lien); text-decoration: underline; cursor: pointer; padding: 0; font-weight: 600; }
 
-.message { margin: 0 12px 8px; padding: 8px 10px; border-radius: 6px; background: #FBEDE6; color: #7A3A20; border: 1px solid #EBC3B0; }
-.message.info { background: #EEF3EC; color: var(--vert); border-color: #CFDCCB; }
+.message { margin: 0 12px 8px; padding: 8px 10px; border-radius: 10px; background: var(--conflit-fond); color: var(--conflit-texte); border: 1px solid var(--conflit-trait); }
+.message.info { background: var(--info-fond); color: var(--info-texte); border-color: var(--info-trait); }
 
-.carte { height: 52vh; min-height: 260px; margin: 0 12px; border: 1px solid var(--trait); border-radius: 8px; background: #E9EEE4; }
+.carte { height: 52vh; min-height: 260px; margin: 0 12px; border: 1px solid var(--trait); border-radius: 12px; background: #E4EAF4; }
 
 .synthese { padding: 10px 12px 4px; }
-.total { font-size: 13px; color: var(--doux); margin-bottom: 8px; }
-.total #total { font-size: 20px; font-weight: 600; color: var(--texte); }
-.legende-entete { display: flex; justify-content: space-between; align-items: center; font-weight: 600; margin-bottom: 4px; }
+.total { color: var(--doux); margin-bottom: 8px; }
+.total #total { font-family: var(--titre); font-size: 22px; font-weight: 700; color: var(--lien); }
+.legende-entete { display: flex; justify-content: space-between; align-items: center; font-family: var(--titre); font-weight: 700; color: var(--nuit); margin-bottom: 4px; }
 .legende { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
-.legende li label { display: grid; grid-template-columns: 16px 12px 1fr; gap: 6px; align-items: start; padding: 5px 6px; border-radius: 6px; background: var(--fond); border: 1px solid var(--trait); cursor: pointer; }
-.legende .pastille { margin-top: 3px; }
-.legende .nom { font-weight: 600; }
-.legende .agents { color: var(--doux); font-size: 12px; }
+.legende li label { display: grid; grid-template-columns: 16px 12px 1fr; gap: 6px; align-items: start; padding: 6px 8px; border-radius: 10px; background: var(--carte); border: 1px solid var(--trait); cursor: pointer; }
+.legende .pastille { margin-top: 4px; }
+.legende .nom { font-weight: 700; }
+.legende .agents { color: var(--doux); }
 .legende li.masquee label { opacity: .55; }
 
-.pastille { display: inline-block; width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.pastille { display: inline-block; width: 11px; height: 11px; border-radius: 50%; flex: none; }
 
-.hors { margin: 8px 12px 0; padding: 8px 10px; background: var(--fond); border: 1px solid #EBC3B0; border-radius: 8px; }
-.hors-titre { font-weight: 600; color: var(--terracotta); margin-bottom: 4px; }
+/* Hors carte : style « à valider » de la charte */
+.hors { margin: 8px 12px 0; padding: 8px 10px; background: #FFFCF2; border: 1px solid var(--valider-trait); border-radius: 12px; }
+.hors-titre { font-family: var(--titre); font-weight: 700; color: var(--valider-texte); margin-bottom: 4px; }
 .hors-liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
-.hors-liste li { font-size: 12px; }
-.hors-liste .ref { font-weight: 600; }
+.hors-liste .ref { font-weight: 700; }
 .hors-liste .detail { color: var(--doux); }
 
-.pied { padding: 10px 12px 14px; font-size: 11px; color: var(--doux); }
+.pied { padding: 10px 12px 14px; font-size: 12px; color: var(--doux); }
 
 /* Repères */
 .repere { position: relative; }
 .repere svg { display: block; }
-.repere .badge { position: absolute; top: -6px; right: -8px; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 9px; background: var(--ivoire);
-  border: 1.5px solid var(--vert); color: var(--vert); font-size: 11px; font-weight: 700; line-height: 15px; text-align: center; }
-.groupe { width: 34px; height: 34px; border-radius: 50%; background: var(--ivoire); border: 3px solid var(--vert); color: var(--vert);
-  display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; }
-.agence-repere { width: 20px; height: 20px; border-radius: 4px; background: var(--ivoire); border: 2px solid var(--vert); color: var(--vert);
-  font-weight: 700; font-size: 11px; display: flex; align-items: center; justify-content: center; }
+.repere .badge { position: absolute; top: -7px; right: -9px; min-width: 19px; height: 19px; padding: 0 4px; border-radius: 10px; background: #FFFFFF;
+  border: 2px solid var(--nuit); color: var(--nuit); font-size: 12px; font-weight: 700; line-height: 15px; text-align: center; }
+.groupe { width: 34px; height: 34px; border-radius: 50%; background: #FFFFFF; border: 3px solid var(--nuit); color: var(--nuit);
+  display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
+.agence-repere { width: 22px; height: 22px; border-radius: 5px; background: #FFFFFF; border: 2px solid var(--nuit); color: var(--nuit);
+  font-weight: 700; font-size: 12px; display: flex; align-items: center; justify-content: center; }
 .leaflet-div-icon { background: transparent; border: 0; }
 
 /* Fiche d'intervention */
-.leaflet-popup-content { margin: 10px 12px; font-size: 12px; }
-.fiche-client { font-weight: 700; font-size: 13px; color: var(--vert); }
+.leaflet-popup-content { margin: 10px 12px; font-family: "Nunito Sans", "Segoe UI", sans-serif; font-size: 13px; color: var(--texte); }
+.fiche-client { font-family: var(--titre); font-weight: 700; font-size: 14px; color: var(--nuit); }
 .fiche-adresse { color: var(--doux); margin-bottom: 4px; }
-.fiche-alerte { color: var(--terracotta); font-weight: 600; margin-bottom: 4px; }
-.fiche-nb { font-size: 11px; color: var(--doux); margin-bottom: 4px; }
+.fiche-alerte { color: var(--valider-texte); background: var(--valider-fond); border-radius: 6px; padding: 1px 6px; font-weight: 700; margin-bottom: 4px; display: inline-block; }
+.fiche-nb { color: var(--doux); margin-bottom: 4px; }
 .fiche-int { border-top: 1px solid var(--trait); padding-top: 6px; margin-top: 6px; }
-.fiche-ref { font-weight: 600; display: flex; align-items: center; gap: 6px; margin-bottom: 3px; }
+.fiche-ref { font-weight: 700; display: flex; align-items: center; gap: 6px; margin-bottom: 3px; }
 .fiche table { border-collapse: collapse; }
 .fiche th { text-align: left; font-weight: 400; color: var(--doux); padding: 1px 8px 1px 0; vertical-align: top; }
 .fiche td { padding: 1px 0; }
+
+/* Page d'aide */
+.aide main { max-width: 680px; margin: 0 auto; padding: 16px; line-height: 1.55; }
+.aide h2 { font-family: var(--titre); color: var(--nuit); font-size: 18px; margin-top: 20px; }

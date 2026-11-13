@@ -10,7 +10,7 @@
   var etat = { alerteCarte: "", lignes: [], agences: [], agenceAccueil: "", agence: "", date: 0, visibles: {}, lieux: [], carte: null, couche: null, coucheAgence: null, minuterie: null };
   var $ = function (id) { return document.getElementById(id); };
   var COULEUR = /^#[0-9A-Fa-f]{6}$/;
-  function couleurSure(c, defaut) { return COULEUR.test(String(c || "")) ? c : (defaut || "#1F4A3D"); }
+  function couleurSure(c, defaut) { return COULEUR.test(String(c || "")) ? c : (defaut || "#3B4A6B"); }   // O5.2 : bleu nuit (charte V3)
 
   function message(texte, info) {
     var m = $("message");
@@ -90,10 +90,10 @@
 
   function iconeRepere(lieu) {
     var c1 = couleurSure(lieu.couleur), n = lieu.interventions.length;
-    var autres = lieu.equipes.length > 1;   // plusieurs équipes au même endroit : centre ivoire cerclé de terracotta
+    var autres = lieu.equipes.length > 1;   // plusieurs équipes au même endroit : centre blanc cerclé de bleu nuit (charte V3)
     var svg = '<svg width="26" height="36" viewBox="0 0 26 36" aria-hidden="true">'
-      + '<path d="M13 35C13 35 2 21.5 2 13a11 11 0 0 1 22 0c0 8.5-11 22-11 22z" fill="' + c1 + '" stroke="#F7F3EA" stroke-width="2"/>'
-      + '<circle cx="13" cy="13" r="4.6" fill="#F7F3EA"' + (autres ? ' stroke="#C8734F" stroke-width="2.2"' : "") + "/></svg>";
+      + '<path d="M13 35C13 35 2 21.5 2 13a11 11 0 0 1 22 0c0 8.5-11 22-11 22z" fill="' + c1 + '" stroke="#FFFFFF" stroke-width="2"/>'
+      + '<circle cx="13" cy="13" r="4.6" fill="#FFFFFF"' + (autres ? ' stroke="#3B4A6B" stroke-width="2.4"' : "") + "/></svg>";
     return L.divIcon({ className: "", html: '<div class="repere">' + svg + (n > 1 ? '<span class="badge">' + n + "</span>" : "") + "</div>",
       iconSize: [26, 36], iconAnchor: [13, 35], popupAnchor: [0, -32] });
   }

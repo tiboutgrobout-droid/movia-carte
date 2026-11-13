@@ -2,7 +2,7 @@
  * MOVIA — Carte des interventions — logique pure (aucun accès à Excel ni à la carte).
  * Lit le contenu de la table « Carte » écrite par le script MOVIA (module M26) et prépare ce que le volet affiche :
  * journée, interventions par lieu, équipes, légende, interventions hors carte, fiche d'intervention.
- * Ce fichier sera réutilisé tel quel dans MOVIA Windows. Version 1.0.0 (O5.1b).
+ * Ce fichier sera réutilisé tel quel dans MOVIA Windows. Version 1.1.0 (O5.2 : couleur par défaut de la charte V3).
  */
 (function (racine, fabrique) {
   if (typeof module === "object" && module.exports) module.exports = fabrique();
@@ -10,7 +10,7 @@
 }(typeof self !== "undefined" ? self : this, function () {
   "use strict";
 
-  var VERSION = "1.0.0";
+  var VERSION = "1.1.0";
   var JOURS = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
   var ORIGINE = Date.UTC(1899, 11, 30);   // numéro de série Excel 0
   var JOUR_MS = 86400000;
@@ -79,7 +79,7 @@
     carte.concat(hors).forEach(function (l) {
       var n = nombre(l.NumeroEquipe);
       if (n === undefined) return;
-      if (!equipes[n]) { equipes[n] = { numero: n, libelle: texte(l.Equipe) || ("Équipe " + n), couleur: texte(l.CouleurEquipe) || "#1F4A3D", agents: texte(l.Agents), interventions: 0, horsCarte: 0 }; liste.push(equipes[n]); }
+      if (!equipes[n]) { equipes[n] = { numero: n, libelle: texte(l.Equipe) || ("Équipe " + n), couleur: texte(l.CouleurEquipe) || "#3B4A6B", agents: texte(l.Agents), interventions: 0, horsCarte: 0 }; liste.push(equipes[n]); }
       if (estSurCarte(l)) equipes[n].interventions++; else equipes[n].horsCarte++;
     });
     liste.sort(function (a, b) { return a.numero - b.numero; });
@@ -99,7 +99,7 @@
       parCle[cle].interventions.push(l);
       if (n !== undefined && parCle[cle].equipes.indexOf(n) < 0) parCle[cle].equipes.push(n);
     });
-    res.forEach(function (x) { x.equipes.sort(function (a, b) { return a - b; }); x.couleur = texte(x.interventions[0].CouleurEquipe) || "#1F4A3D"; });
+    res.forEach(function (x) { x.equipes.sort(function (a, b) { return a - b; }); x.couleur = texte(x.interventions[0].CouleurEquipe) || "#3B4A6B"; });
     return res;
   }
 
@@ -142,7 +142,7 @@
       var chantier = texte(l.JourChantier) ? " · chantier " + echapper(l.JourChantier) : "";
       var effectif = texte(l.Effectif) + (texte(l.EffectifRequis) && texte(l.EffectifRequis) !== texte(l.Effectif) ? " (requis : " + echapper(l.EffectifRequis) + ")" : "");
       h += '<div class="fiche-int">'
-        + '<div class="fiche-ref"><span class="pastille" style="background:' + echapper(l.CouleurEquipe || "#1F4A3D") + '"></span>'
+        + '<div class="fiche-ref"><span class="pastille" style="background:' + echapper(l.CouleurEquipe || "#3B4A6B") + '"></span>'
         + echapper(l.IdIntervention) + " — " + echapper(l.Prestation || l.PrestationID) + "</div>"
         + "<table>"
         + "<tr><th>Date</th><td>" + echapper(jourLong(nombre(l.Date))) + chantier + "</td></tr>"

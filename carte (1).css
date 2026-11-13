@@ -1,0 +1,79 @@
+/* MOVIA — identité : vert profond, vert sauge, terracotta, ivoire. */
+:root {
+  --vert: #1F4A3D; --sauge: #8FA98F; --terracotta: #C8734F; --ivoire: #F7F3EA;
+  --bandeau: #356454;   /* bandeau : entre le vert profond et le vert moyen (choix du 13/11/2026) */
+  --texte: #23302B; --doux: #5F6B66; --trait: #DCD6C8; --fond: #FFFFFF;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--ivoire); color: var(--texte);
+  font-family: "Segoe UI", "Segoe UI Web (West European)", -apple-system, Roboto, "Helvetica Neue", sans-serif; font-size: 13px; }
+button, select, input { font-family: inherit; font-size: 13px; color: var(--texte); }
+
+.bandeau { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--bandeau); color: #FFFFFF; }
+.bandeau img { border-radius: 6px; background: var(--ivoire); }
+.bandeau-titre { font-size: 15px; font-weight: 600; }
+.bandeau-sous { font-size: 11px; opacity: .85; }
+
+.commandes { padding: 10px 12px 6px; display: grid; gap: 8px; }
+.champ { display: grid; gap: 3px; font-size: 11px; color: var(--doux); }
+select, input[type=date] { height: 30px; border: 1px solid var(--trait); border-radius: 6px; background: var(--fond); padding: 0 6px; }
+.jour { display: flex; gap: 4px; align-items: center; }
+.jour input { flex: 1; min-width: 0; }
+.jour-libelle { font-weight: 600; color: var(--vert); }
+.actions { display: flex; gap: 6px; }
+.btn, .btn-icone { height: 30px; border: 1px solid var(--trait); border-radius: 6px; background: var(--fond); cursor: pointer; }
+.btn { padding: 0 10px; flex: 1; }
+.btn-icone { width: 30px; font-size: 16px; line-height: 1; }
+.btn:hover, .btn-icone:hover { border-color: var(--sauge); background: #F1F4EE; }
+.btn:focus-visible, .btn-icone:focus-visible, select:focus-visible, input:focus-visible, .lien:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 1px; }
+.lien { border: 0; background: none; color: var(--vert); text-decoration: underline; cursor: pointer; padding: 0; }
+
+.message { margin: 0 12px 8px; padding: 8px 10px; border-radius: 6px; background: #FBEDE6; color: #7A3A20; border: 1px solid #EBC3B0; }
+.message.info { background: #EEF3EC; color: var(--vert); border-color: #CFDCCB; }
+
+.carte { height: 52vh; min-height: 260px; margin: 0 12px; border: 1px solid var(--trait); border-radius: 8px; background: #E9EEE4; }
+
+.synthese { padding: 10px 12px 4px; }
+.total { font-size: 13px; color: var(--doux); margin-bottom: 8px; }
+.total #total { font-size: 20px; font-weight: 600; color: var(--texte); }
+.legende-entete { display: flex; justify-content: space-between; align-items: center; font-weight: 600; margin-bottom: 4px; }
+.legende { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.legende li label { display: grid; grid-template-columns: 16px 12px 1fr; gap: 6px; align-items: start; padding: 5px 6px; border-radius: 6px; background: var(--fond); border: 1px solid var(--trait); cursor: pointer; }
+.legende .pastille { margin-top: 3px; }
+.legende .nom { font-weight: 600; }
+.legende .agents { color: var(--doux); font-size: 12px; }
+.legende li.masquee label { opacity: .55; }
+
+.pastille { display: inline-block; width: 10px; height: 10px; border-radius: 50%; flex: none; }
+
+.hors { margin: 8px 12px 0; padding: 8px 10px; background: var(--fond); border: 1px solid #EBC3B0; border-radius: 8px; }
+.hors-titre { font-weight: 600; color: var(--terracotta); margin-bottom: 4px; }
+.hors-liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.hors-liste li { font-size: 12px; }
+.hors-liste .ref { font-weight: 600; }
+.hors-liste .detail { color: var(--doux); }
+
+.pied { padding: 10px 12px 14px; font-size: 11px; color: var(--doux); }
+
+/* Repères */
+.repere { position: relative; }
+.repere svg { display: block; }
+.repere .badge { position: absolute; top: -6px; right: -8px; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 9px; background: var(--ivoire);
+  border: 1.5px solid var(--vert); color: var(--vert); font-size: 11px; font-weight: 700; line-height: 15px; text-align: center; }
+.groupe { width: 34px; height: 34px; border-radius: 50%; background: var(--ivoire); border: 3px solid var(--vert); color: var(--vert);
+  display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; }
+.agence-repere { width: 20px; height: 20px; border-radius: 4px; background: var(--ivoire); border: 2px solid var(--vert); color: var(--vert);
+  font-weight: 700; font-size: 11px; display: flex; align-items: center; justify-content: center; }
+.leaflet-div-icon { background: transparent; border: 0; }
+
+/* Fiche d'intervention */
+.leaflet-popup-content { margin: 10px 12px; font-size: 12px; }
+.fiche-client { font-weight: 700; font-size: 13px; color: var(--vert); }
+.fiche-adresse { color: var(--doux); margin-bottom: 4px; }
+.fiche-alerte { color: var(--terracotta); font-weight: 600; margin-bottom: 4px; }
+.fiche-nb { font-size: 11px; color: var(--doux); margin-bottom: 4px; }
+.fiche-int { border-top: 1px solid var(--trait); padding-top: 6px; margin-top: 6px; }
+.fiche-ref { font-weight: 600; display: flex; align-items: center; gap: 6px; margin-bottom: 3px; }
+.fiche table { border-collapse: collapse; }
+.fiche th { text-align: left; font-weight: 400; color: var(--doux); padding: 1px 8px 1px 0; vertical-align: top; }
+.fiche td { padding: 1px 0; }

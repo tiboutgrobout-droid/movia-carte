@@ -18,6 +18,10 @@ button, select, input { font-family: inherit; font-size: 14px; color: var(--text
 .bandeau img { display: block; flex: none; }
 .bandeau-titre { font-family: var(--titre); font-size: 16px; font-weight: 700; }
 .bandeau-sous { font-size: 13px; color: #E6E1D8; }
+/* O5.3 : bandeau TENTORA, logo « dans le O » (kit TENTORA, version claire) au-dessus du titre. */
+.bandeau-tentora { flex-direction: column; align-items: flex-start; gap: 6px; }
+.bandeau-tentora .bandeau-titre { font-size: 15px; }
+.bandeau-tentora .bandeau-titre .bandeau-sous { font-family: "Nunito Sans", "Segoe UI", sans-serif; font-weight: 400; }
 
 .commandes { padding: 10px 12px 6px; display: grid; gap: 8px; }
 .champ { display: grid; gap: 3px; font-size: 13px; font-weight: 600; color: var(--doux); }

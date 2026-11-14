@@ -1,5 +1,5 @@
 /*
- * MOVIA — Carte des interventions — volet Excel (lecture seule).
+ * TENTORA (ex-MOVIA) — Carte des interventions — volet Excel (lecture seule).
  * Lit la table « Carte » (écrite par le script MOVIA, module M26), la table Agences et l'agence choisie dans l'Accueil,
  * puis affiche la journée sur une carte Leaflet. AUCUNE écriture dans le classeur (manifeste : ReadDocument).
  * Ne calcule ni itinéraire, ni trajet, ni horaire : consultation uniquement.
@@ -56,11 +56,11 @@
     return lireClasseur().then(function (d) {
       if (!d.carte) {
         etat.lignes = [];
-        message("Table « Carte » introuvable : lancez une fois « Générer le planning » avec le script MOVIA V2.5-O5.1 (ou plus récent), puis « Actualiser ».");
+        message("Table « Carte » introuvable : lancez une fois « Générer le planning » avec le script TENTORA (V2.5-O5.1 ou plus récent), puis « Actualiser ».");
       } else {
         var manque = M.colonnesManquantes(d.carte);
         etat.lignes = manque.length ? [] : M.lireTable(d.carte);
-        message(manque.length ? "Table « Carte » incomplète (colonnes manquantes : " + manque.join(", ") + ") : mettez à jour les deux scripts MOVIA." : "");
+        message(manque.length ? "Table « Carte » incomplète (colonnes manquantes : " + manque.join(", ") + ") : mettez à jour les deux scripts TENTORA." : "");
       }
       etat.agences = M.agences(etat.lignes, M.lireTable(d.agences));
       etat.agenceAccueil = d.agenceAccueil;

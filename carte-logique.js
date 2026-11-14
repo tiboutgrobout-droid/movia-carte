@@ -2,7 +2,7 @@
  * MOVIA — Carte des interventions — logique pure (aucun accès à Excel ni à la carte).
  * Lit le contenu de la table « Carte » écrite par le script MOVIA (module M26) et prépare ce que le volet affiche :
  * journée, interventions par lieu, équipes, légende, interventions hors carte, fiche d'intervention.
- * Ce fichier sera réutilisé tel quel dans MOVIA Windows. Version 1.1.0 (O5.2 : couleur par défaut de la charte V3).
+ * Ce fichier sera réutilisé tel quel dans TENTORA Windows. Version 1.2.0 (O5.3 : renommage TENTORA, aucun changement de calcul).
  */
 (function (racine, fabrique) {
   if (typeof module === "object" && module.exports) module.exports = fabrique();
@@ -10,7 +10,7 @@
 }(typeof self !== "undefined" ? self : this, function () {
   "use strict";
 
-  var VERSION = "1.1.0";
+  var VERSION = "1.2.0";
   var JOURS = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
   var ORIGINE = Date.UTC(1899, 11, 30);   // numéro de série Excel 0
   var JOUR_MS = 86400000;
